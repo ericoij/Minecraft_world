@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mental Health Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js" defer></script>
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Mental Health Slider Tracker</h1>
+      <p>Log a quick 10-point check-in and watch your trends over time.</p>
+    </header>
+    <main>
+      <section class="card">
+        <h2>Daily Check-In</h2>
+        <form id="entryForm">
+          <div id="sliderContainer" class="slider-grid"></div>
+          <div class="form-actions">
+            <button type="submit">Save Entry</button>
+            <button type="button" id="resetButton" class="secondary">Reset</button>
+          </div>
+        </form>
+        <p id="status" role="status" aria-live="polite"></p>
+      </section>
+      <section class="card">
+        <div class="header-with-action">
+          <h2>Trend Line</h2>
+          <button type="button" id="refreshButton" class="ghost">Refresh</button>
+        </div>
+        <canvas id="historyChart" height="320"></canvas>
+      </section>
+    </main>
+  </body>
+</html>

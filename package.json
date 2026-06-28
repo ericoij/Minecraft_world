@@ -1,0 +1,18 @@
+{
+  "name": "42cb0e19b5ed05bf",
+  "version": "1.0.0",
+  "description": "Mental health slider tracker with graph",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "nedb-promises": "^6.2.3"
+  }
+}
