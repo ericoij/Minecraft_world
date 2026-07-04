@@ -1,0 +1,32 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server:latest
+    container_name: minecraft-paper
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+    ports:
+      - "${MINECRAFT_PORT:-25565}:25565"
+      - "${BEDROCK_PORT:-19132}:19132/udp"
+    environment:
+      EULA: "${MINECRAFT_EULA:-FALSE}"
+      TYPE: "${MINECRAFT_TYPE:-PAPER}"
+      VERSION: "${MINECRAFT_VERSION:-LATEST}"
+      MEMORY: "${MINECRAFT_MEMORY:-2G}"
+      MOTD: "${MINECRAFT_MOTD:-Codex Paper Server}"
+      MAX_PLAYERS: "${MINECRAFT_MAX_PLAYERS:-10}"
+      DIFFICULTY: "${MINECRAFT_DIFFICULTY:-normal}"
+      MODE: "${MINECRAFT_GAMEMODE:-survival}"
+      ONLINE_MODE: "${MINECRAFT_ONLINE_MODE:-TRUE}"
+      ENABLE_RCON: "${ENABLE_RCON:-TRUE}"
+      RCON_PASSWORD: "${RCON_PASSWORD:-change-me-before-deploy}"
+      RCON_PORT: "25575"
+      MODRINTH_PROJECTS: |
+        chunky
+        geyser
+        floodgate
+    volumes:
+      - minecraft-data:/data
+
+volumes:
+  minecraft-data:

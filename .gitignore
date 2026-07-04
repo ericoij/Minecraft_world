@@ -4,6 +4,23 @@ data/*.db*
 .env
 .DS_Store
 *.log
+minecraft-server/.env
+minecraft-server/server.jar
+minecraft-server/paper-version.json
+minecraft-server/chunky-version.json
+minecraft-server/bedrock-bridge-version.json
+minecraft-server/world/
+minecraft-server/world_nether/
+minecraft-server/world_the_end/
+minecraft-server/logs/
+minecraft-server/plugins/
+minecraft-server/java25/
+minecraft-server/temurin25.zip
+minecraft-server/server-output.log
+minecraft-server/server-error.log
+minecraft-server/cache/
+minecraft-server/libraries/
+minecraft-server/versions/
 
 # Separate nested project/repository.
 DailyReflections/

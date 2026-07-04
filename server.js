@@ -2,10 +2,14 @@
 const express = require('express');
 const cors = require('cors');
 const Datastore = require('nedb-promises');
+const fs = require('fs');
 
 class ValidationError extends Error {}
 
 const PORT = process.env.PORT || 3000;
+const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, 'data');
+
+fs.mkdirSync(DATA_DIR, { recursive: true });
 
 const sliderDefinitions = [
   { id: 'mood', label: 'Overall Mood', min: 0, max: 10 },
@@ -21,7 +25,7 @@ const sliderDefinitions = [
 ];
 
 const db = Datastore.create({
-  filename: path.join(__dirname, 'data', 'entries.db'),
+  filename: path.join(DATA_DIR, 'entries.db'),
   autoload: true
 });
 
@@ -67,6 +71,10 @@ const createApp = (entryDb = db) => {
 
   app.get('/api/sliders', (req, res) => {
     res.json({ sliders: sliderDefinitions });
+  });
+
+  app.get('/health', (req, res) => {
+    res.json({ status: 'ok' });
   });
 
   app.get('/api/entries', async (req, res, next) => {

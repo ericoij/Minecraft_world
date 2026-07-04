@@ -1,8 +1,11 @@
 {
-  "name": "42cb0e19b5ed05bf",
+  "name": "mental-health-slider-tracker",
   "version": "1.0.0",
   "description": "Mental health slider tracker with graph",
   "main": "server.js",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "start": "node server.js",
     "test": "node --test test/*.test.js"
